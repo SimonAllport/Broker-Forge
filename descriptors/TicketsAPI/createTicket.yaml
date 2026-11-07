@@ -1,0 +1,31 @@
+operation: createTicket
+version: 1
+binds: Create
+table: ext_ticket
+request:
+  method: POST
+  path: "/tk/v1/tickets"
+  body:
+    template:
+      title:
+        col: ext_title
+      status:
+        col: ext_status
+        optionset: status
+      priority:
+        col: ext_priority
+        optionset: priority
+response:
+  key: "$.id"
+  unmapped: [ext_createdat]
+optionsets:
+  status:
+    open: 100000000
+    closed: 100000001
+  priority:
+    low: 100000000
+    normal: 100000001
+    high: 100000002
+errors:
+  "422": Validation
+  default: Fail

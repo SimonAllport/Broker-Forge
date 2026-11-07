@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The plug-in is net462; its translation and error code are linked in here, the same way it links Contracts (D-08). -->
+  <PropertyGroup>
+    <!-- The linked plug-in and Contracts sources are C# 7.3 without nullable annotations. -->
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.PowerPlatform.Dataverse.Client" Version="1.1.32" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\src\BrokerForge.Contracts\**\*.cs" Exclude="..\..\src\BrokerForge.Contracts\obj\**;..\..\src\BrokerForge.Contracts\bin\**" LinkBase="Contracts" />
+    <Compile Include="..\..\src\BrokerForge.Plugin\Translation\*.cs" LinkBase="Plugin" />
+    <Compile Include="..\..\src\BrokerForge.Plugin\Transport\*.cs" LinkBase="Plugin" />
+    <Compile Include="..\..\src\BrokerForge.Plugin\ProviderPlugin.cs" LinkBase="Plugin" />
+    <Compile Include="..\..\src\BrokerForge.Plugin\CustomApiPlugin.cs" LinkBase="Plugin" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,44 @@
+operation: listEntraTickets
+version: 1
+binds: RetrieveMultiple
+table: ext_entraticket
+request:
+  method: GET
+  path: "/tk/v1/tickets"
+  query:
+    status:
+      filter: ext_status
+      ops: [eq]
+paging:
+  strategy: cursor
+  pageSize:
+    param: limit
+    max: 100
+  token:
+    param: cursor
+    next: "$.nextCursor"
+response:
+  rows: "$.items[*]"
+  key: "$.id"
+  map:
+    ext_title: "$.title"
+    ext_status:
+      path: "$.status"
+      type: "optionset:status"
+    ext_priority:
+      path: "$.priority"
+      type: "optionset:priority"
+    ext_createdat:
+      path: "$.createdAt"
+      type: datetime
+optionsets:
+  status:
+    open: 100000000
+    closed: 100000001
+  priority:
+    low: 100000000
+    normal: 100000001
+    high: 100000002
+errors:
+  default: Fail
+sortStable: true

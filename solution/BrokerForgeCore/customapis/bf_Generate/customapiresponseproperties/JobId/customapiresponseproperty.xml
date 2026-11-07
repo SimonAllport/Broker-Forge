@@ -1,0 +1,11 @@
+<customapiresponseproperty uniquename="JobId">
+  <description default="JobId">
+    <label description="JobId" languagecode="1033" />
+  </description>
+  <displayname default="JobId">
+    <label description="JobId" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <name>bf_Generate.JobId</name>
+  <type>10</type>
+</customapiresponseproperty>

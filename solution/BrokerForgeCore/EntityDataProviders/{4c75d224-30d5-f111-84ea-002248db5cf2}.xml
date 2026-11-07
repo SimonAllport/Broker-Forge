@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDataProvider xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EntityDataProviderId>{4c75d224-30d5-f111-84ea-002248db5cf2}</EntityDataProviderId>
+  <Name>BrokerForge</Name>
+  <DataSourceLogicalName>bf_brokerdatasource</DataSourceLogicalName>
+  <IsCustomizable>1</IsCustomizable>
+  <RetrievePluginTypeId>4c664812-30d5-f111-84ea-002248db5cf2</RetrievePluginTypeId>
+  <RetrieveMultiplePluginTypeId>4c664812-30d5-f111-84ea-002248db5cf2</RetrieveMultiplePluginTypeId>
+  <CreatePluginTypeId>4c664812-30d5-f111-84ea-002248db5cf2</CreatePluginTypeId>
+  <UpdatePluginTypeId>4c664812-30d5-f111-84ea-002248db5cf2</UpdatePluginTypeId>
+  <DeletePluginTypeId>4c664812-30d5-f111-84ea-002248db5cf2</DeletePluginTypeId>
+  <LookupExpansionEnabled>0</LookupExpansionEnabled>
+</EntityDataProvider>

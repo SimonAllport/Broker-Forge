@@ -1,0 +1,12 @@
+table: ext_order
+displayName: Order
+displayCollectionName: Orders
+externalName: order
+primaryName: ext_name
+columns:
+  ext_name:        { type: string, maxLength: 100, displayName: Reference }
+  ext_status:      { type: optionset, options: { open: 100000000, shipped: 100000001, cancelled: 100000002 }, displayName: Status }
+  ext_customerref: { type: string, maxLength: 100, displayName: Customer reference }
+  ext_placed:      { type: datetime, displayName: Placed }
+  ext_lines_json:  { type: memo, maxLength: 100000, displayName: Lines (JSON) }
+  ext_total:       { type: decimal, precision: 2, displayName: Total }

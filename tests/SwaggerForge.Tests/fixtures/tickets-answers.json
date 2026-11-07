@@ -1,0 +1,7 @@
+{
+  "table.primaryName": "$.title",
+  "op.listTickets.paging": "cursor",
+  "op.listTickets.filter.status": "eq",
+  "op.listTickets.sortStable": "yes",
+  "op.listTickets.error.401": "Fail"
+}

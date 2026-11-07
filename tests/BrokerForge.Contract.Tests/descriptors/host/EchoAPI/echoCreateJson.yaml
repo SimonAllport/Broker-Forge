@@ -1,0 +1,36 @@
+operation: echoCreateJson
+version: 1
+binds: Create
+table: ext_echo
+request:
+  method: POST
+  path: /v2/echo/json/{acct}
+  pathParams: { acct: { instance: accountId } }
+  query:
+    a: { col: ext_a }
+    b: { col: ext_b, omitIfNull: false }
+  headers:
+    X-Static:   { static: "2024-06" }
+    X-Instance: { instance: region }
+    X-Corr:     { context: correlationId }
+    X-Env:      { context: environmentId }
+    X-User:     { context: userObjectId }
+    X-Uuid:     { computed: uuid }
+    X-Now:      { computed: utcnow }
+    X-Partner:  { secret: partnerKey }
+    X-Iso:      { col: ext_when, format: iso8601 }
+    X-Date:     { col: ext_when, format: date }
+    X-Epoch:    { col: ext_when, format: epochSeconds }
+    X-Millis:   { col: ext_when, format: epochMillis }
+    X-Lower:    { col: ext_name, format: lower }
+    X-Upper:    { col: ext_name, format: upper }
+  body:
+    template:
+      name: { col: ext_name }
+      nested: { count: { col: ext_count } }
+      lines: { col: ext_lines_json, format: json }
+      flag: true
+response:
+  key: $.id
+errors:
+  default: Fail

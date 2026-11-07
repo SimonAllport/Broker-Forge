@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PluginAssembly FullName="BrokerForge.Plugin, Version=0.1.0.0, Culture=neutral, PublicKeyToken=359afdf5b289a42f" PluginAssemblyId="49664812-30d5-f111-84ea-002248db5cf2" CustomizationLevel="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsolationMode>2</IsolationMode>
+  <SourceType>0</SourceType>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <FileName>/PluginAssemblies/BrokerForgePlugin-49664812-30D5-F111-84EA-002248DB5CF2/BrokerForgePlugin.dll</FileName>
+  <PluginTypes>
+    <PluginType AssemblyQualifiedName="BrokerForge.Plugin.CustomApiPlugin, BrokerForge.Plugin, Version=0.1.0.0, Culture=neutral, PublicKeyToken=359afdf5b289a42f" PluginTypeId="6ccc0d21-dcd5-f111-84ea-002248db5cf2" Name="BrokerForge.Plugin.CustomApiPlugin">
+      <FriendlyName>BrokerForge Custom API handler</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="BrokerForge.Plugin.ProviderPlugin, BrokerForge.Plugin, Version=0.1.0.0, Culture=neutral, PublicKeyToken=359afdf5b289a42f" PluginTypeId="4c664812-30d5-f111-84ea-002248db5cf2" Name="BrokerForge.Plugin.ProviderPlugin">
+      <FriendlyName>BrokerForge provider</FriendlyName>
+    </PluginType>
+  </PluginTypes>
+</PluginAssembly>

@@ -1,0 +1,43 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-test-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+
+      # The mock API declares node >= 22 in package.json.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # The strong-name key lives outside the repo, so CI builds the plug-in unsigned.
+      # Signed builds come only from tools/spike/sign-plugin.sh.
+      - name: Build
+        run: dotnet build BrokerForge.slnx -p:SignAssembly=false
+
+      - name: Test
+        run: dotnet test BrokerForge.slnx --no-build -p:SignAssembly=false
+
+      - name: Mock API tests
+        working-directory: tools/mock-api
+        run: npm test
+
+      - name: Web resource tests
+        run: node --test 'tests/webresources/*.test.js'
+
+      - name: Validate descriptors
+        run: dotnet run --project tools/BrokerForge.Cli --no-build -- validate descriptors --schemas schemas

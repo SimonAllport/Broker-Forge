@@ -1,0 +1,73 @@
+# Tickets mock API (tools/mock-api/tickets.js). The input to `bf draft` for the phase 3 per-user source.
+openapi: 3.0.3
+info: { title: Tickets mock API, version: "1" }
+components:
+  securitySchemes:
+    oauth:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: /tk/oauth/authorize
+          tokenUrl: /tk/oauth/token
+          scopes: { tickets.read: Read and create your tickets }
+  schemas:
+    Ticket:
+      type: object
+      required: [id, title, status, priority, createdAt]
+      properties:
+        id: { type: string, maxLength: 20 }
+        title: { type: string, maxLength: 200 }
+        status: { type: string, enum: [open, closed] }
+        priority: { type: string, enum: [low, normal, high] }
+        createdAt: { type: string, format: date-time }
+    TicketInput:
+      type: object
+      required: [title]
+      properties:
+        title: { type: string }
+        status: { type: string, enum: [open, closed] }
+        priority: { type: string, enum: [low, normal, high] }
+security:
+  - oauth: [tickets.read]
+paths:
+  /tk/v1/tickets:
+    get:
+      operationId: listTickets
+      parameters:
+        - { name: limit, in: query, schema: { type: integer, minimum: 1, maximum: 100, default: 25 } }
+        - { name: cursor, in: query, schema: { type: string } }
+        - { name: status, in: query, schema: { type: string, enum: [open, closed] } }
+      responses:
+        "200":
+          description: A page of the caller's tickets
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items, nextCursor]
+                properties:
+                  items: { type: array, items: { $ref: "#/components/schemas/Ticket" } }
+                  nextCursor: { type: string, nullable: true }
+        "401": { description: No credential }
+    post:
+      operationId: createTicket
+      requestBody:
+        required: true
+        content: { application/json: { schema: { $ref: "#/components/schemas/TicketInput" } } }
+      responses:
+        "201":
+          description: Created, owned by the caller
+          content:
+            application/json:
+              schema: { type: object, required: [id], properties: { id: { type: string } } }
+        "422": { description: Invalid body }
+  /tk/v1/tickets/{id}:
+    get:
+      operationId: getTicket
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string } }
+      responses:
+        "200":
+          description: One of the caller's tickets
+          content: { application/json: { schema: { $ref: "#/components/schemas/Ticket" } } }
+        "404": { description: "No such ticket, or another user's" }

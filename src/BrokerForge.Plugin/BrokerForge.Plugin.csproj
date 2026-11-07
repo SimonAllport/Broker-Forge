@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <LangVersion>7.3</LangVersion>
+    <RootNamespace>BrokerForge.Plugin</RootNamespace>
+    <!-- The plug-in is committed inside solution/ in a public repo: keep the build machine's paths out of it. -->
+    <PathMap>$(MSBuildProjectDirectory)=/_/</PathMap>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
+  </PropertyGroup>
+
+  <!-- Dataverse requires a strong name. The key lives outside the repo; override with -p:BrokerForgeSnk=... -->
+  <PropertyGroup>
+    <BrokerForgeSnk Condition="'$(BrokerForgeSnk)' == ''">$(HOME)/.brokerforge/spike-signing/plugin.snk</BrokerForgeSnk>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(BrokerForgeSnk)</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Lets net462 build on macOS/Linux without the .NET Framework targeting pack -->
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.60" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+
+  <!-- HLD D-08: Contracts are compiled in, so the sandbox loads one signed DLL. -->
+  <ItemGroup>
+    <Compile Include="..\BrokerForge.Contracts\**\*.cs" Exclude="..\BrokerForge.Contracts\obj\**;..\BrokerForge.Contracts\bin\**" LinkBase="Contracts" />
+  </ItemGroup>
+
+</Project>

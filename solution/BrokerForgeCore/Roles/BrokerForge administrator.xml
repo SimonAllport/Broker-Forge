@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Role id="{7ad1e0be-1dd9-f111-84ea-002248db5cf2}" name="BrokerForge administrator" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsCustomizable>1</IsCustomizable>
+  <IsAutoAssigned>0</IsAutoAssigned>
+  <Description>May set up BrokerForge connections: create, read again, generate.</Description>
+  <RolePrivileges>
+    <RolePrivilege name="prvAppendbf_connection" level="Global" />
+    <RolePrivilege name="prvAppendTobf_connection" level="Global" />
+    <RolePrivilege name="prvCreatebf_connection" level="Global" />
+    <RolePrivilege name="prvCreateSharePointData" level="Global" />
+    <RolePrivilege name="prvDeletebf_connection" level="Global" />
+    <RolePrivilege name="prvReadbf_connection" level="Global" />
+    <RolePrivilege name="prvReadPluginAssembly" level="Global" />
+    <RolePrivilege name="prvReadPluginType" level="Global" />
+    <RolePrivilege name="prvReadSdkMessage" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStep" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStepImage" level="Global" />
+    <RolePrivilege name="prvReadSharePointData" level="Global" />
+    <RolePrivilege name="prvReadSharePointDocument" level="Global" />
+    <RolePrivilege name="prvWritebf_connection" level="Global" />
+    <RolePrivilege name="prvWriteSharePointData" level="Global" />
+  </RolePrivileges>
+</Role>

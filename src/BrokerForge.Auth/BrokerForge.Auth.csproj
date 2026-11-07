@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Azure.Data.Tables" Version="12.9.1" />
+    <PackageReference Include="Azure.Identity" Version="1.13.1" />
+    <PackageReference Include="Azure.Security.KeyVault.Secrets" Version="4.7.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Data Protection for the credential store payload (HLD D-25). -->
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BrokerForge.Abstractions\BrokerForge.Abstractions.csproj" />
+    <ProjectReference Include="..\BrokerForge.Descriptors\BrokerForge.Descriptors.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="BrokerForge.Auth.Tests" />
+  </ItemGroup>
+</Project>

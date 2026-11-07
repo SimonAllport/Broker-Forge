@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{ebab8aae-1dd9-f111-84ea-002248db5cf2}</WebResourceId>
+  <Name>bf_/brokerforge/review-model.js</Name>
+  <DisplayName>BrokerForge review-model.js</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/bf_brokerforgereview-modeljsEBAB8AAE-1DD9-F111-84EA-002248DB5CF2</FileName>
+</WebResource>

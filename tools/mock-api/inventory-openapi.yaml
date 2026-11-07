@@ -1,0 +1,120 @@
+# Inventory mock API (tools/mock-api/inventory.js). The input to `bf draft` for phase 2 onboarding.
+openapi: 3.0.3
+info: { title: Inventory mock API, version: "1" }
+components:
+  securitySchemes:
+    apiKey: { type: apiKey, in: query, name: api_key }
+  schemas:
+    Item:
+      type: object
+      required: [id, name, sku, onHand, price, state, updatedAt]
+      properties:
+        id: { type: integer }
+        name: { type: string, maxLength: 100 }
+        sku: { type: string, maxLength: 40, nullable: true }
+        onHand: { type: integer }
+        price: { type: number }
+        state: { type: string, enum: [active, discontinued] }
+        updatedAt: { type: string, format: date-time }
+    ItemInput:
+      type: object
+      properties:
+        name: { type: string }
+        sku: { type: string }
+        onHand: { type: integer }
+        price: { type: number }
+        state: { type: string, enum: [active, discontinued] }
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            detail: { type: string }
+security:
+  - apiKey: []
+paths:
+  /inv/v1/items:
+    get:
+      operationId: listItems
+      parameters:
+        - { name: limit, in: query, schema: { type: integer, minimum: 1, maximum: 50, default: 20 } }
+        - { name: offset, in: query, schema: { type: integer, minimum: 0, default: 0 } }
+        - { name: state, in: query, schema: { type: string, enum: [active, discontinued] } }
+        - { name: name, in: query, schema: { type: string } }
+      responses:
+        "200":
+          description: A page of items, in id order
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items, total]
+                properties:
+                  items: { type: array, items: { $ref: "#/components/schemas/Item" } }
+                  total: { type: integer }
+    post:
+      operationId: createItem
+      requestBody:
+        required: true
+        content: { application/json: { schema: { $ref: "#/components/schemas/ItemInput" } } }
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema: { type: object, required: [id], properties: { id: { type: integer } } }
+        "422":
+          description: Invalid item
+          content: { application/json: { schema: { $ref: "#/components/schemas/Error" } } }
+  /inv/v1/items/{itemId}:
+    parameters:
+      - { name: itemId, in: path, required: true, schema: { type: integer } }
+    get:
+      operationId: getItem
+      responses:
+        "200":
+          description: The item
+          content: { application/json: { schema: { $ref: "#/components/schemas/Item" } } }
+        "404": { description: No such item }
+    patch:
+      operationId: updateItem
+      requestBody:
+        content: { application/json: { schema: { $ref: "#/components/schemas/ItemInput" } } }
+      responses:
+        "204": { description: Updated }
+        "404": { description: No such item }
+        "422": { description: Invalid item }
+    delete:
+      operationId: deleteItem
+      responses:
+        "204": { description: Deleted }
+        "404": { description: No such item }
+  /inv/v1/items/{itemId}/adjust:
+    post:
+      operationId: adjustStock
+      parameters:
+        - { name: itemId, in: path, required: true, schema: { type: integer } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [delta]
+              properties:
+                delta: { type: integer }
+                reason: { type: string }
+      responses:
+        "200":
+          description: The new stock level
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [onHand, adjustedAt]
+                properties:
+                  onHand: { type: integer }
+                  adjustedAt: { type: string, format: date-time }
+        "404": { description: No such item }
+        "422": { description: The adjustment would leave negative stock }

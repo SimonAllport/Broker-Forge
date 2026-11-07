@@ -1,0 +1,26 @@
+table: ext_ticket
+displayName: Ticket
+displayCollectionName: Tickets
+externalName: ticket
+primaryName: ext_title
+columns:
+  ext_title:
+    type: string
+    maxLength: 200
+    displayName: Title
+  ext_status:
+    type: optionset
+    options:
+      open: 100000000
+      closed: 100000001
+    displayName: Status
+  ext_priority:
+    type: optionset
+    options:
+      low: 100000000
+      normal: 100000001
+      high: 100000002
+    displayName: Priority
+  ext_createdat:
+    type: datetime
+    displayName: Created at

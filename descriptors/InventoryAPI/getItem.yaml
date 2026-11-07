@@ -1,0 +1,35 @@
+operation: getItem
+version: 1
+binds: Retrieve
+table: ext_item
+request:
+  method: GET
+  path: "/inv/v1/items/{itemId}"
+  pathParams:
+    itemId:
+      id: true
+response:
+  rows: "$"
+  key: "$.id"
+  map:
+    ext_name: "$.name"
+    ext_sku: "$.sku"
+    ext_onhand:
+      path: "$.onHand"
+      type: int
+    ext_price:
+      path: "$.price"
+      type: decimal
+    ext_state:
+      path: "$.state"
+      type: "optionset:state"
+    ext_updatedat:
+      path: "$.updatedAt"
+      type: datetime
+optionsets:
+  state:
+    active: 100000000
+    discontinued: 100000001
+errors:
+  "404": NotFound
+  default: Fail

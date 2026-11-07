@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\BrokerForge.Schema\BrokerForge.Schema.csproj" />
+    <ProjectReference Include="..\..\tools\BrokerForge.Cli\BrokerForge.Cli.csproj" />
+  </ItemGroup>
+</Project>

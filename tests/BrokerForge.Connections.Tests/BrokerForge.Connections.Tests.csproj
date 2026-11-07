@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\BrokerForge.Connections\BrokerForge.Connections.csproj" />
+  </ItemGroup>
+</Project>

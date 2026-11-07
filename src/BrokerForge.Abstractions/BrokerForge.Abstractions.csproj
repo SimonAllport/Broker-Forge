@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Host-side contracts shared by the descriptor engine, auth providers and adapters (HLD 7.2, 7.3, D-13). -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BrokerForge.Contracts\BrokerForge.Contracts.csproj" />
+  </ItemGroup>
+</Project>

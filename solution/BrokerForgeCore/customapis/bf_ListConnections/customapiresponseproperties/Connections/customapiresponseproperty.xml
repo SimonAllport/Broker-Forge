@@ -1,0 +1,11 @@
+<customapiresponseproperty uniquename="Connections">
+  <description default="Connections">
+    <label description="Connections" languagecode="1033" />
+  </description>
+  <displayname default="Connections">
+    <label description="Connections" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <name>bf_ListConnections.Connections</name>
+  <type>10</type>
+</customapiresponseproperty>

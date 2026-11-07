@@ -1,0 +1,33 @@
+operation: updateItem
+version: 1
+binds: Update
+table: ext_item
+request:
+  method: PATCH
+  path: "/inv/v1/items/{itemId}"
+  pathParams:
+    itemId:
+      id: true
+  body:
+    template:
+      name:
+        col: ext_name
+      sku:
+        col: ext_sku
+      onHand:
+        col: ext_onhand
+      price:
+        col: ext_price
+      state:
+        col: ext_state
+        optionset: state
+optionsets:
+  state:
+    active: 100000000
+    discontinued: 100000001
+errors:
+  "404": NotFound
+  "422":
+    exception: Validation
+    message: "$.error.detail"
+  default: Fail

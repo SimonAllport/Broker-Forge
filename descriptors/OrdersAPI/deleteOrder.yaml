@@ -1,0 +1,13 @@
+operation: deleteOrder
+version: 1
+binds: Delete
+table: ext_order
+request:
+  method: DELETE
+  path: /v2/orders/{orderId}
+  pathParams: { orderId: { id: true } }
+  headers:
+    X-Correlation: { context: correlationId }
+errors:
+  404: NotFound
+  default: Fail

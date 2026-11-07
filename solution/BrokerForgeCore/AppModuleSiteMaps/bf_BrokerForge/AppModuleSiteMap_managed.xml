@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModuleSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SiteMapUniqueName>bf_BrokerForge</SiteMapUniqueName>
+  <EnableCollapsibleGroups>False</EnableCollapsibleGroups>
+  <ShowHome>True</ShowHome>
+  <ShowPinned>True</ShowPinned>
+  <ShowRecents>True</ShowRecents>
+  <SiteMap IntroducedVersion="7.0.0.0">
+    <Area Id="bf_area" ShowGroups="true">
+      <Titles>
+        <Title LCID="1033" Title="BrokerForge" />
+      </Titles>
+      <Group Id="bf_group">
+        <Titles>
+          <Title LCID="1033" Title="Connections" />
+        </Titles>
+        <SubArea Id="bf_connections_page" Url="$webresource:bf_/brokerforge/connections.html">
+          <Titles>
+            <Title LCID="1033" Title="Overview" />
+          </Titles>
+        </SubArea>
+        <SubArea Id="bf_connection_table" Entity="bf_connection">
+          <Titles>
+            <Title LCID="1033" Title="Connections" />
+          </Titles>
+        </SubArea>
+      </Group>
+    </Area>
+  </SiteMap>
+  <LocalizedNames>
+    <LocalizedName description="BrokerForge" languagecode="1033" />
+  </LocalizedNames>
+</AppModuleSiteMap>

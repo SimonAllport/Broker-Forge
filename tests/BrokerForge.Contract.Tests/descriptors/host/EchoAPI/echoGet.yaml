@@ -1,0 +1,15 @@
+operation: echoGet
+version: 1
+binds: Retrieve
+table: ext_echo
+request:
+  method: GET
+  path: /v2/echo/orders/{id}
+  pathParams: { id: { id: true } }
+response:
+  rows: $
+  key: $.id
+  map:
+    ext_name: $.path
+errors:
+  default: Fail

@@ -1,0 +1,33 @@
+operation: listOrders
+version: 1
+binds: RetrieveMultiple
+table: ext_order
+request:
+  method: GET
+  path: /v2/orders
+  query:
+    status:   { filter: ext_status, ops: [eq, in], format: csv }
+    customer: { filter: ext_customerref, ops: [eq] }
+    sort:     { sort: { ext_name: reference, ext_placed: placedAt }, descFormat: "-{field}" }
+paging:
+  strategy: cursor
+  pageSize: { param: limit, max: 100 }
+  token:    { param: cursor, next: $.meta.nextCursor }
+response:
+  rows: $.data[*]
+  key: $.id
+  map:
+    ext_name:        $.reference
+    ext_status:      { path: $.state.code, type: optionset:orderStatus }
+    ext_customerref: $.customer.ref
+    ext_placed:      { path: $.placedAt, type: datetime }
+    ext_total:       { path: $.totals.gross, type: decimal }
+    ext_lines_json:  { path: $.lines, type: json }
+optionsets:
+  orderStatus: { open: 100000000, shipped: 100000001, cancelled: 100000002 }
+filters:
+  allowOr: true
+  orStyle: in
+errors:
+  default: Fail
+sortStable: true

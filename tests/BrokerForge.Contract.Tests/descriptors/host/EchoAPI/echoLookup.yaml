@@ -1,0 +1,13 @@
+operation: echoLookup
+version: 1
+binds: customapi:ext_EchoLookup
+request:
+  method: GET
+  path: /v2/orders/{orderId}
+  pathParams: { orderId: { param: OrderId } }
+response:
+  outputs:
+    Reference: $.reference
+errors:
+  404: NotFound
+  default: Fail

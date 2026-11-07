@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>bf</AssemblyName>
+    <RootNamespace>BrokerForge.Cli</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\BrokerForge.Schema\BrokerForge.Schema.csproj" />
+    <ProjectReference Include="..\..\src\BrokerForge.Descriptors\BrokerForge.Descriptors.csproj" />
+    <ProjectReference Include="..\SwaggerForge\SwaggerForge.csproj" />
+    <ProjectReference Include="..\..\src\BrokerForge.Generator\BrokerForge.Generator.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.13.1" />
+  </ItemGroup>
+</Project>

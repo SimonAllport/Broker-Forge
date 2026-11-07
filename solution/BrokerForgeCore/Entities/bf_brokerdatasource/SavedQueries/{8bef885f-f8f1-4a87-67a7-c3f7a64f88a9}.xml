@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{8bef885f-f8f1-4a87-67a7-c3f7a64f88a9}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="bf_name" select="1" icon="1" preview="1">
+        <row name="result" id="bf_brokerdatasourceid">
+          <cell name="bf_name" width="300" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>1048576</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="bf_brokerdatasource">
+          <attribute name="bf_brokerdatasourceid" />
+          <attribute name="bf_name" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="BrokerForge Data Sources Copilot View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

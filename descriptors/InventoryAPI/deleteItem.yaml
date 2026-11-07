@@ -1,0 +1,13 @@
+operation: deleteItem
+version: 1
+binds: Delete
+table: ext_item
+request:
+  method: DELETE
+  path: "/inv/v1/items/{itemId}"
+  pathParams:
+    itemId:
+      id: true
+errors:
+  "404": NotFound
+  default: Fail

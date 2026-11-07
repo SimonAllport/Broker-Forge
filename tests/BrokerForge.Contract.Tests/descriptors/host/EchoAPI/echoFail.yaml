@@ -1,0 +1,18 @@
+operation: echoFail
+version: 1
+binds: Retrieve
+table: ext_echofail
+request:
+  method: GET
+  path: /v2/echo/fail/{id}
+  pathParams: { id: { id: true } }
+  headers:
+    X-Partner: { secret: partnerKey }
+response:
+  rows: $
+  key: $.id
+  map:
+    ext_name: $.path
+errors:
+  default: Fail
+  successBodyCheck: { path: $.method, equals: NEVER }

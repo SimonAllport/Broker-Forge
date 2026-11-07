@@ -1,0 +1,32 @@
+operation: createItem
+version: 1
+binds: Create
+table: ext_item
+request:
+  method: POST
+  path: "/inv/v1/items"
+  body:
+    template:
+      name:
+        col: ext_name
+      sku:
+        col: ext_sku
+      onHand:
+        col: ext_onhand
+      price:
+        col: ext_price
+      state:
+        col: ext_state
+        optionset: state
+response:
+  key: "$.id"
+  unmapped: [ext_updatedat]
+optionsets:
+  state:
+    active: 100000000
+    discontinued: 100000001
+errors:
+  "422":
+    exception: Validation
+    message: "$.error.detail"
+  default: Fail

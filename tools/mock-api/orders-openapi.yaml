@@ -1,0 +1,142 @@
+# Hand-written for the Orders mock (tools/mock-api), routes /v2/orders*.
+openapi: 3.0.3
+info: { title: Orders mock API, version: "2" }
+components:
+  parameters:
+    Correlation: { name: X-Correlation, in: header, description: Echoed in the mock's log, schema: { type: string } }
+    IdempotencyKey: { name: Idempotency-Key, in: header, description: A repeat with the same key returns the first order, schema: { type: string } }
+  securitySchemes:
+    apiKey: { type: apiKey, in: header, name: X-Api-Key }
+  schemas:
+    Order:
+      type: object
+      required: [id, reference, state, customer, placedAt, lines, totals]
+      properties:
+        id: { type: string }
+        reference: { type: string, maxLength: 100 }
+        state:
+          type: object
+          required: [code]
+          properties:
+            code: { type: string, enum: [open, shipped, cancelled] }
+        customer:
+          type: object
+          required: [ref]
+          properties:
+            ref: { type: string, maxLength: 100 }
+        placedAt: { type: string, format: date-time }
+        lines:
+          type: array
+          items:
+            type: object
+            properties:
+              sku: { type: string }
+              qty: { type: integer }
+        totals:
+          type: object
+          required: [gross]
+          properties:
+            gross: { type: number }
+    OrderInput:
+      type: object
+      required: [customer]
+      properties:
+        customer:
+          type: object
+          properties:
+            ref: { type: string }
+        state:
+          type: object
+          properties:
+            code: { type: string, enum: [open, shipped, cancelled] }
+        lines: { type: array, items: { type: object } }
+        totals:
+          type: object
+          properties:
+            gross: { type: number }
+        placedBy: { type: string, description: Who placed the order }
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            detail: { type: string }
+security:
+  - apiKey: []
+paths:
+  /v2/orders:
+    get:
+      operationId: listOrders
+      parameters:
+        - { name: status, in: query, schema: { type: string, enum: [open, shipped, cancelled] } }
+        - { name: customer, in: query, schema: { type: string } }
+        - { name: sort, in: query, schema: { type: string } }
+        - { name: limit, in: query, schema: { type: integer, minimum: 1, maximum: 100, default: 20 } }
+        - { name: cursor, in: query, schema: { type: string } }
+      responses:
+        "200":
+          description: A page of orders
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { type: array, items: { $ref: "#/components/schemas/Order" } }
+                  meta:
+                    type: object
+                    properties:
+                      nextCursor: { type: string, nullable: true }
+  /v2/orders/{orderId}:
+    parameters:
+      - { name: orderId, in: path, required: true, schema: { type: string } }
+    get:
+      operationId: getOrder
+      responses:
+        "200":
+          description: The order
+          content: { application/json: { schema: { $ref: "#/components/schemas/Order" } } }
+        "404":
+          description: No such order
+          content: { application/json: { schema: { $ref: "#/components/schemas/Error" } } }
+    patch:
+      operationId: updateOrder
+      parameters:
+        - $ref: "#/components/parameters/Correlation"
+      requestBody:
+        content: { application/json: { schema: { $ref: "#/components/schemas/OrderInput" } } }
+      responses:
+        "204": { description: Updated }
+        "404": { description: No such order }
+        "422":
+          description: Invalid change
+          content: { application/json: { schema: { $ref: "#/components/schemas/Error" } } }
+    delete:
+      operationId: deleteOrder
+      parameters:
+        - $ref: "#/components/parameters/Correlation"
+      responses:
+        "204": { description: Deleted }
+        "404": { description: No such order }
+  /v2/accounts/{accountId}/orders:
+    post:
+      operationId: createOrder
+      parameters:
+        - { name: accountId, in: path, required: true, schema: { type: string } }
+        - $ref: "#/components/parameters/Correlation"
+        - $ref: "#/components/parameters/IdempotencyKey"
+      requestBody:
+        required: true
+        content: { application/json: { schema: { $ref: "#/components/schemas/OrderInput" } } }
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id: { type: string }
+        "422":
+          description: Invalid order
+          content: { application/json: { schema: { $ref: "#/components/schemas/Error" } } }

@@ -1,0 +1,20 @@
+operation: echoList
+version: 1
+binds: RetrieveMultiple
+table: ext_echo
+request:
+  method: GET
+  path: /v2/echo/list
+  query:
+    status: { filter: ext_status, ops: [eq, in], format: csv }
+paging:
+  strategy: none
+response:
+  rows: $.rows[*]
+  key: $.id
+  map:
+    ext_name:   $.name
+    ext_status: { path: $.status, optional: true }
+errors:
+  default: Fail
+sortStable: false

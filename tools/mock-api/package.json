@@ -1,0 +1,11 @@
+{
+  "name": "brokerforge-mock-api",
+  "private": true,
+  "description": "Orders mock API used by the BrokerForge contract tests. No dependencies.",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=22" }
+}

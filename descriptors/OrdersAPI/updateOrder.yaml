@@ -1,0 +1,22 @@
+operation: updateOrder
+version: 1
+binds: Update
+table: ext_order
+request:
+  method: PATCH
+  path: /v2/orders/{orderId}
+  pathParams: { orderId: { id: true } }
+  headers:
+    X-Correlation: { context: correlationId }
+  body:
+    template:
+      customer: { ref: { col: ext_customerref } }
+      state:    { code: { col: ext_status, optionset: orderStatus } }
+      lines:    { col: ext_lines_json, format: json }
+      totals:   { gross: { col: ext_total } }
+optionsets:
+  orderStatus: { open: 100000000, shipped: 100000001, cancelled: 100000002 }
+errors:
+  404: NotFound
+  422: { exception: Validation, message: $.error.detail }
+  default: Fail

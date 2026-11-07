@@ -1,0 +1,11 @@
+{
+  "column.$.price.precision": "2",
+  "column.$.sku.displayName": "SKU",
+  "op.listItems.paging": "offset",
+  "op.listItems.filter.state": "eq",
+  "op.listItems.filter.name": "eq",
+  "op.listItems.sortStable": "yes",
+  "op.createItem.error.422.message": "$.error.detail",
+  "op.updateItem.error.422.message": "$.error.detail",
+  "op.adjustStock.error.422.message": "$.error.detail"
+}

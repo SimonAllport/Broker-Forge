@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Connection design format: one JSON document per service instance, stored in a Dataverse web resource. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BrokerForge.Abstractions\BrokerForge.Abstractions.csproj" />
+  </ItemGroup>
+</Project>

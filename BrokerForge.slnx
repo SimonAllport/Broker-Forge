@@ -1,0 +1,31 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/BrokerForge.Abstractions/BrokerForge.Abstractions.csproj" />
+    <Project Path="src/BrokerForge.Adapters.Rest/BrokerForge.Adapters.Rest.csproj" />
+    <Project Path="src/BrokerForge.Auth/BrokerForge.Auth.csproj" />
+    <Project Path="src/BrokerForge.Connections/BrokerForge.Connections.csproj" />
+    <Project Path="src/BrokerForge.Contracts/BrokerForge.Contracts.csproj" />
+    <Project Path="src/BrokerForge.Descriptors/BrokerForge.Descriptors.csproj" />
+    <Project Path="src/BrokerForge.Generator/BrokerForge.Generator.csproj" />
+    <Project Path="src/BrokerForge.Host/BrokerForge.Host.csproj" />
+    <Project Path="src/BrokerForge.Keys/BrokerForge.Keys.csproj" />
+    <Project Path="src/BrokerForge.Plugin/BrokerForge.Plugin.csproj" />
+    <Project Path="src/BrokerForge.Schema/BrokerForge.Schema.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/BrokerForge.Auth.Tests/BrokerForge.Auth.Tests.csproj" />
+    <Project Path="tests/BrokerForge.Connections.Tests/BrokerForge.Connections.Tests.csproj" />
+    <Project Path="tests/BrokerForge.Contract.Tests/BrokerForge.Contract.Tests.csproj" />
+    <Project Path="tests/BrokerForge.Contracts.Tests/BrokerForge.Contracts.Tests.csproj" />
+    <Project Path="tests/BrokerForge.Descriptors.Tests/BrokerForge.Descriptors.Tests.csproj" />
+    <Project Path="tests/BrokerForge.Generator.Tests/BrokerForge.Generator.Tests.csproj" />
+    <Project Path="tests/BrokerForge.Keys.Tests/BrokerForge.Keys.Tests.csproj" />
+    <Project Path="tests/BrokerForge.Plugin.Tests/BrokerForge.Plugin.Tests.csproj" />
+    <Project Path="tests/BrokerForge.Schema.Tests/BrokerForge.Schema.Tests.csproj" />
+    <Project Path="tests/SwaggerForge.Tests/SwaggerForge.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/BrokerForge.Cli/BrokerForge.Cli.csproj" />
+    <Project Path="tools/SwaggerForge/SwaggerForge.csproj" />
+  </Folder>
+</Solution>

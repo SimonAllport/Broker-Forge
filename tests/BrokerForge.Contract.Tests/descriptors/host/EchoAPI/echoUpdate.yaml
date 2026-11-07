@@ -1,0 +1,14 @@
+operation: echoUpdate
+version: 1
+binds: Update
+table: ext_echo
+request:
+  method: PATCH
+  path: /v2/echo/update/{id}
+  pathParams: { id: { id: true } }
+  body:
+    template:
+      name: { col: ext_name }
+      ref:  { col: ext_ref, alwaysSend: true }
+errors:
+  default: Fail

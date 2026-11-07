@@ -1,0 +1,11 @@
+<customapiresponseproperty uniquename="State">
+  <description default="State">
+    <label description="State" languagecode="1033" />
+  </description>
+  <displayname default="State">
+    <label description="State" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <name>bf_Generate.State</name>
+  <type>10</type>
+</customapiresponseproperty>

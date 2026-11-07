@@ -1,0 +1,11 @@
+<customapiresponseproperty uniquename="Review">
+  <description default="Review">
+    <label description="Review" languagecode="1033" />
+  </description>
+  <displayname default="Review">
+    <label description="Review" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <name>bf_ReadDefinition.Review</name>
+  <type>10</type>
+</customapiresponseproperty>

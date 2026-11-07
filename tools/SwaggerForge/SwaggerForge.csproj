@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>BrokerForge.SwaggerForge</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.OpenApi.Readers" Version="1.6.30" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\BrokerForge.Schema\BrokerForge.Schema.csproj" />
+    <ProjectReference Include="..\..\src\BrokerForge.Descriptors\BrokerForge.Descriptors.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="SwaggerForge.Tests" />
+  </ItemGroup>
+</Project>

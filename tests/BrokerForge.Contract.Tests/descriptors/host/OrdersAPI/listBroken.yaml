@@ -1,0 +1,17 @@
+operation: listBroken
+version: 1
+binds: RetrieveMultiple
+table: ext_broken
+request:
+  method: GET
+  path: /v2/broken
+paging:
+  strategy: none
+response:
+  rows: $.data[*]
+  key: $.id
+  map:
+    ext_name: $.reference
+errors:
+  default: Fail
+sortStable: true

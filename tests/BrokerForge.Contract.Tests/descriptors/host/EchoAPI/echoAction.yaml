@@ -1,0 +1,22 @@
+operation: echoAction
+version: 1
+binds: customapi:ext_EchoAction
+request:
+  method: POST
+  path: /v2/echo/action/{id}
+  pathParams: { id: { param: Id } }
+  query:
+    n: { param: Count }
+  headers:
+    X-Note: { param: Note }
+  body:
+    template:
+      flag: { param: Flag }
+response:
+  outputs:
+    Path:  $.path
+    Count: { path: $.query.n, type: int }
+    Note:  { path: "$.headers['x-note']", optional: true }
+    Body:  $.body
+errors:
+  default: Fail

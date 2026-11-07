@@ -1,0 +1,47 @@
+operation: listItems
+version: 1
+binds: RetrieveMultiple
+table: ext_item
+request:
+  method: GET
+  path: "/inv/v1/items"
+  query:
+    state:
+      filter: ext_state
+      ops: [eq]
+    name:
+      filter: ext_name
+      ops: [eq]
+paging:
+  strategy: offset
+  pageSize:
+    param: limit
+    max: 50
+  offset:
+    param: offset
+    total: "$.total"
+response:
+  rows: "$.items[*]"
+  key: "$.id"
+  map:
+    ext_name: "$.name"
+    ext_sku: "$.sku"
+    ext_onhand:
+      path: "$.onHand"
+      type: int
+    ext_price:
+      path: "$.price"
+      type: decimal
+    ext_state:
+      path: "$.state"
+      type: "optionset:state"
+    ext_updatedat:
+      path: "$.updatedAt"
+      type: datetime
+optionsets:
+  state:
+    active: 100000000
+    discontinued: 100000001
+errors:
+  default: Fail
+sortStable: true

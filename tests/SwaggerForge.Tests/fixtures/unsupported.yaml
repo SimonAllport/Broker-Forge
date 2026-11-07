@@ -1,0 +1,106 @@
+# A small widgets API with offset paging and an action, plus operations SwaggerForge must refuse to draft.
+openapi: 3.0.3
+info: { title: Widgets, version: "1" }
+components:
+  schemas:
+    Widget:
+      type: object
+      properties:
+        id: { type: integer }
+        name: { type: string, maxLength: 50 }
+        onHand: { type: integer }
+    Node:
+      type: object
+      properties:
+        id: { type: string }
+        child: { $ref: "#/components/schemas/Node" }
+paths:
+  /widgets:
+    get:
+      operationId: listWidgets
+      parameters:
+        - { name: limit, in: query, schema: { type: integer, maximum: 50 } }
+        - { name: offset, in: query, schema: { type: integer } }
+        - { name: name, in: query, schema: { type: string } }
+      responses:
+        "200":
+          description: Widgets
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items: { type: array, items: { $ref: "#/components/schemas/Widget" } }
+                  total: { type: integer }
+  /widgets/{widgetId}:
+    get:
+      operationId: getWidget
+      parameters:
+        - { name: widgetId, in: path, required: true, schema: { type: integer } }
+      responses:
+        "200":
+          description: The widget
+          content: { application/json: { schema: { $ref: "#/components/schemas/Widget" } } }
+  /widgets/{widgetId}/adjust:
+    post:
+      operationId: adjustWidget
+      parameters:
+        - { name: widgetId, in: path, required: true, schema: { type: integer } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [delta]
+              properties:
+                delta: { type: integer }
+                reason: { type: string }
+      responses:
+        "200":
+          description: Adjusted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  onHand: { type: integer }
+                  adjustedAt: { type: string, format: date-time }
+  /widgets/{widgetId}/variant:
+    post:
+      operationId: makeVariant
+      parameters:
+        - { name: widgetId, in: path, required: true, schema: { type: integer } }
+      responses:
+        "200":
+          description: One of two shapes
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - { type: object, properties: { a: { type: string } } }
+                  - { type: object, properties: { b: { type: string } } }
+  /widgets/{widgetId}/tree:
+    post:
+      operationId: widgetTree
+      parameters:
+        - { name: widgetId, in: path, required: true, schema: { type: integer } }
+      responses:
+        "200":
+          description: A tree
+          content: { application/json: { schema: { $ref: "#/components/schemas/Node" } } }
+  /widgets/{widgetId}/ping:
+    post:
+      parameters:
+        - { name: widgetId, in: path, required: true, schema: { type: integer } }
+      responses:
+        "200":
+          description: No operationId
+          content: { application/json: { schema: { type: object, properties: { ok: { type: boolean } } } } }
+  /widgets/{widgetId}/touch:
+    post:
+      operationId: touchWidget
+      parameters:
+        - { name: widgetId, in: path, required: true, schema: { type: integer } }
+      responses:
+        "202": { description: "Accepted, no body" }

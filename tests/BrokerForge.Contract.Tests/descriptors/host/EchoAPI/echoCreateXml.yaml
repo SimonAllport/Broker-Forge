@@ -1,0 +1,14 @@
+operation: echoCreateXml
+version: 1
+binds: Create
+table: ext_echoxml
+request:
+  method: POST
+  path: /v2/echo/xml
+  body:
+    contentType: text/xml
+    raw: "<order><name>{{ col.ext_name }}</name><corr>{{ context.correlationId }}</corr></order>"
+response:
+  key: $.id
+errors:
+  default: Fail

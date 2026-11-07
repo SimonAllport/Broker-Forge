@@ -1,0 +1,29 @@
+operation: adjustStock
+version: 1
+binds: "customapi:ext_AdjustStock"
+request:
+  method: POST
+  path: "/inv/v1/items/{itemId}/adjust"
+  pathParams:
+    itemId:
+      param: ItemId
+  body:
+    template:
+      delta:
+        param: Delta
+      reason:
+        param: Reason
+response:
+  outputs:
+    OnHand:
+      path: "$.onHand"
+      type: int
+    AdjustedAt:
+      path: "$.adjustedAt"
+      type: datetime
+errors:
+  "404": NotFound
+  "422":
+    exception: Validation
+    message: "$.error.detail"
+  default: Fail

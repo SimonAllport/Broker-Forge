@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\BrokerForge.Contracts\BrokerForge.Contracts.csproj" />
+  </ItemGroup>
+</Project>

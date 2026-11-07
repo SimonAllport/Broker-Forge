@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{964915c9-f13f-42ad-b0ee-82f370c0c0f7}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="bf_name" select="1" icon="1" preview="1">
+        <row name="result" id="bf_connectionid">
+          <cell name="bf_name" width="200" />
+          <cell name="bf_baseurl" width="200" />
+          <cell name="bf_generationstate" width="200" />
+          <cell name="bf_generationfinished" width="200" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="bf_connection">
+          <attribute name="bf_connectionid" />
+          <attribute name="bf_name" />
+          <attribute name="bf_baseurl" />
+          <attribute name="bf_generationstate" />
+          <attribute name="bf_generationfinished" />
+          <order attribute="bf_name" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active BrokerForge connections" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

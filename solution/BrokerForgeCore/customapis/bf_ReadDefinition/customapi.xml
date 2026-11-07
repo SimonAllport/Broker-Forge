@@ -1,0 +1,19 @@
+<customapi uniquename="bf_ReadDefinition">
+  <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
+  <bindingtype>0</bindingtype>
+  <description default="BrokerForge admin: bf_ReadDefinition">
+    <label description="BrokerForge admin: bf_ReadDefinition" languagecode="1033" />
+  </description>
+  <displayname default="bf_ReadDefinition">
+    <label description="bf_ReadDefinition" languagecode="1033" />
+  </displayname>
+  <executeprivilegename>prvWritebf_connection</executeprivilegename>
+  <iscustomizable>1</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>bf_ReadDefinition</name>
+  <plugintypeid>
+    <plugintypeexportkey>6ccc0d21-dcd5-f111-84ea-002248db5cf2</plugintypeexportkey>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>

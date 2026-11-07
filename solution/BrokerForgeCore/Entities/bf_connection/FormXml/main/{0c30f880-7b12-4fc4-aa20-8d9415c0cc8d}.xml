@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{0c30f880-7b12-4fc4-aa20-8d9415c0cc8d}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab name="general" id="{1253905f-f036-55c1-a85f-1c2c6304195f}" expanded="true" showlabel="true" verticallayout="true">
+          <labels>
+            <label description="Connection" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="general_section" id="{1d0ee927-0bb3-5a37-8693-123612fdeaab}" showlabel="false" showbar="false" columns="1">
+                  <labels>
+                    <label description="Connection" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{238619e1-be71-516b-8dae-f3103abb6fd3}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="bf_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bf_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b10f1f46-42fe-5e69-b0df-9b946f83da87}">
+                        <labels>
+                          <label description="Base URL" languagecode="1033" />
+                        </labels>
+                        <control id="bf_baseurl" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bf_baseurl" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8939066e-5c28-5bd9-b2fd-2616c4338172}">
+                        <labels>
+                          <label description="Authentication" languagecode="1033" />
+                        </labels>
+                        <control id="bf_authmode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="bf_authmode" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{fd71e935-8177-5129-85f6-40b8f902dcdc}">
+                        <labels>
+                          <label description="Static kind" languagecode="1033" />
+                        </labels>
+                        <control id="bf_statickind" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bf_statickind" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bb7dda70-acd1-5e31-aca5-2dad411a101e}">
+                        <labels>
+                          <label description="Header name" languagecode="1033" />
+                        </labels>
+                        <control id="bf_headername" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bf_headername" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1b8163ae-211d-5473-8ab7-e53196309481}">
+                        <labels>
+                          <label description="Query parameter" languagecode="1033" />
+                        </labels>
+                        <control id="bf_queryparam" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bf_queryparam" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f715f1e1-8560-5954-826e-068d3e21c504}">
+                        <labels>
+                          <label description="User name" languagecode="1033" />
+                        </labels>
+                        <control id="bf_username" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bf_username" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7aef45a0-f4d9-5b0f-bd3f-fee121c7957c}">
+                        <labels>
+                          <label description="Scope" languagecode="1033" />
+                        </labels>
+                        <control id="bf_scope" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bf_scope" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9afff9a9-6c85-5e87-8c5d-288e61386ffe}">
+                        <labels>
+                          <label description="SSO kind" languagecode="1033" />
+                        </labels>
+                        <control id="bf_ssokind" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bf_ssokind" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{eea3ff59-5d78-5e95-9260-e96aee07d8aa}">
+                        <labels>
+                          <label description="Authorize URL" languagecode="1033" />
+                        </labels>
+                        <control id="bf_authorizeurl" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bf_authorizeurl" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b62c65f5-a275-5888-adc5-e13ea08ae9d9}">
+                        <labels>
+                          <label description="Token URL" languagecode="1033" />
+                        </labels>
+                        <control id="bf_tokenurl" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bf_tokenurl" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8256b1b3-2269-5967-b2c8-44bf358aee1f}">
+                        <labels>
+                          <label description="OAuth scopes" languagecode="1033" />
+                        </labels>
+                        <control id="bf_oauthscopes" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bf_oauthscopes" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f4e5b02e-c5e1-597c-a0ed-b3b491da4f88}">
+                        <labels>
+                          <label description="Client ID" languagecode="1033" />
+                        </labels>
+                        <control id="bf_clientid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bf_clientid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bf1e76c5-6245-53a6-aaf2-50ce60b527fc}">
+                        <labels>
+                          <label description="Uses the connect app" languagecode="1033" />
+                        </labels>
+                        <control id="bf_usesconnectapp" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="bf_usesconnectapp" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{39abfbdc-4725-50c2-b069-c6017d709a98}">
+                        <labels>
+                          <label description="Table prefix" languagecode="1033" />
+                        </labels>
+                        <control id="bf_prefix" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bf_prefix" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{12e9c698-8158-5835-ba91-6bba7798eaf5}">
+                        <labels>
+                          <label description="Solution" languagecode="1033" />
+                        </labels>
+                        <control id="bf_solution" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bf_solution" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{20174bc5-4c55-59af-957c-6c83d5512db0}">
+                        <labels>
+                          <label description="Swagger / OpenAPI" languagecode="1033" />
+                        </labels>
+                        <control id="bf_openapi" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="bf_openapi" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="review" id="{8483ed45-1394-5ff7-bb4d-64acfd02dc80}" expanded="true" showlabel="true" verticallayout="true">
+          <labels>
+            <label description="Review and generate" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="review_section" id="{ea72d860-ee70-55da-ac3a-b46f93eb768e}" showlabel="false" showbar="false" columns="1">
+                  <labels>
+                    <label description="Review and generate" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{3696b23c-c691-53f9-8f1a-2ecd03aebb25}" showlabel="false" rowspan="40">
+                        <labels>
+                          <label description="Review" languagecode="1033" />
+                        </labels>
+                        <control id="WebResource_review" classid="{9FDF5F91-88B1-47f4-AD53-C11EFC01A01D}">
+                          <parameters>
+                            <Url>bf_/brokerforge/review.html</Url>
+                            <PassParameters>false</PassParameters>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>false</Border>
+                            <WebResourceId>{16be8fa8-1dd9-f111-84ea-002248db5cf2}</WebResourceId>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f587ca68-1b54-5204-b500-4722e10a7edb}">
+                        <labels>
+                          <label description="Generation state" languagecode="1033" />
+                        </labels>
+                        <control id="bf_generationstate" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="bf_generationstate" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{30b387cc-907d-5cb4-be58-b3211f9d52ad}">
+                        <labels>
+                          <label description="Generation started" languagecode="1033" />
+                        </labels>
+                        <control id="bf_generationstarted" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="bf_generationstarted" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0b7ce77c-d651-5d07-badc-77ad9c8f248a}">
+                        <labels>
+                          <label description="Generation finished" languagecode="1033" />
+                        </labels>
+                        <control id="bf_generationfinished" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="bf_generationfinished" disabled="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <formLibraries>
+        <Library name="bf_/brokerforge/connection.js" libraryUniqueId="{699c7f5a-7fc3-536d-9bc6-41720f023c1c}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="BrokerForge.Connection.onLoad" libraryName="bf_/brokerforge/connection.js" handlerUniqueId="{2607e236-9de9-5409-9976-68fd216fb32b}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

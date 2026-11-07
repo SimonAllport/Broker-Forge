@@ -1,0 +1,45 @@
+table: ext_item
+displayName: Item
+displayCollectionName: Items
+externalName: item
+primaryName: ext_name
+columns:
+  ext_name:
+    type: string
+    maxLength: 100
+    displayName: Name
+  ext_sku:
+    type: string
+    maxLength: 40
+    displayName: SKU
+  ext_onhand:
+    type: int
+    displayName: On hand
+  ext_price:
+    type: decimal
+    precision: 2
+    displayName: Price
+  ext_state:
+    type: optionset
+    options:
+      active: 100000000
+      discontinued: 100000001
+    displayName: State
+  ext_updatedat:
+    type: datetime
+    displayName: Updated at
+customApis:
+  ext_AdjustStock:
+    displayName: Adjust stock
+    inputs:
+      ItemId:
+        type: int
+        required: true
+      Delta:
+        type: int
+        required: true
+      Reason:
+        type: string
+    outputs:
+      OnHand: int
+      AdjustedAt: datetime

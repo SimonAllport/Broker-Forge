@@ -1,0 +1,11 @@
+{
+  "table.name": "ext_entraticket",
+  "table.displayName": "Entra ticket",
+  "table.collectionName": "Entra tickets",
+  "table.primaryName": "$.title",
+  "op.listTickets.paging": "cursor",
+  "op.listTickets.filter.status": "eq",
+  "op.listTickets.sortStable": "yes",
+  "op.listTickets.error.401": "Fail",
+  "table.externalName": "ticket"
+}

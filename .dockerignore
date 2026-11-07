@@ -1,0 +1,10 @@
+**/bin/
+**/obj/
+**/node_modules/
+.git/
+out/
+tests/
+docs/
+*.snk
+*.pfx
+.env

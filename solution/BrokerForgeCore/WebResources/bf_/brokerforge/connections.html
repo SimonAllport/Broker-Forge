@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BrokerForge connections</title>
+<style>
+  :root { --text: #1b1b1b; --muted: #5c5c5c; --line: #d6d6d6; --bad: #a4262c; --good: #107c10; --accent: #0f6cbd; }
+  body { font: 14px/1.45 "Segoe UI", system-ui, sans-serif; color: var(--text); margin: 0; padding: 16px; background: #fff; }
+  h1 { font-size: 20px; margin: 0 0 12px; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { text-align: left; border-bottom: 1px solid var(--line); padding: 6px; }
+  .bad { color: var(--bad); } .good { color: var(--good); } .muted { color: var(--muted); }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<h1>Connections</h1>
+<p><a id="new" href="#">New connection</a></p>
+<div id="message" class="muted">Loading…</div>
+<table id="list" hidden>
+  <tr><th>Name</th><th>Status</th><th>Design</th><th></th></tr>
+</table>
+<script src="connections.js"></script>
+</body>
+</html>

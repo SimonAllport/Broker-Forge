@@ -1,0 +1,27 @@
+operation: listPaged
+version: 1
+binds: RetrieveMultiple
+table: ext_order
+request:
+  method: GET
+  path: /v2/orders-paged
+  query:
+    status: { filter: ext_status, ops: [eq, in], format: csv }
+    customer: { filter: ext_customerref, ops: [eq] }
+paging:
+  strategy: pageNumber
+  pageSize: { param: size, max: 40 }
+  page: { param: page, base: 1 }
+response:
+  rows: $.results[*]
+  key: $.id
+  map:
+    ext_name:        $.reference
+    ext_status:      { path: $.state.code, type: optionset:orderStatus }
+    ext_customerref: $.customer.ref
+    ext_placed:      { path: $.placedAt, type: datetime }
+optionsets:
+  orderStatus: { open: 100000000, shipped: 100000001, cancelled: 100000002 }
+errors:
+  default: Fail
+sortStable: true

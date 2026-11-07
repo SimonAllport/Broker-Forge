@@ -1,0 +1,14 @@
+# Custom APIs only: the EchoAPI tables are test fixtures without a generated schema.
+customApis:
+  ext_EchoAction:
+    displayName: Echo action
+    inputs:
+      Id:    { type: string, required: true }
+      Count: { type: int, required: true }
+      Note:  { type: string }
+      Flag:  { type: bool }
+    outputs: { Path: string, Count: int, Note: string, Body: string }
+  ext_EchoLookup:
+    displayName: Echo lookup
+    inputs: { OrderId: { type: string, required: true } }
+    outputs: { Reference: string }
